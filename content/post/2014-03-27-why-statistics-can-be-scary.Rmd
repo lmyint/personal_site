@@ -1,0 +1,46 @@
+---
+title: "Why statistics can be scary"
+author: "Leslie Myint"
+date: 2014-03-27 02:52:57+00:00
+slug: why-statistics-can-be-scary
+categories: ["Opinion"]
+tags: []
+header:
+  caption: ''
+  image: ''
+---
+
+I've been planning for some time to start this blog mainly as a way to give intuition to people untrained in statistics about what statisticians do and why. For the last few weeks, I've been gathering ideas, and I've found that in the process I've had to be a lot more reflective about fundamental aims in statistics that I had almost started taking for granted. So as a brief aside, I highly encourage people to blog! Everyone cares about something, and blogging is a great way to (1) make sure you know your stuff, (2) learn stuff, and (3) share stuff. As a PhD student (1) and (2) are constantly among my worries, and I care about (3) because I love teaching and talking about ideas that are interesting to me.
+
+So let’s get to the interesting stuff (I hope)! I love statistics, but I know that most people do not feel the same way that I do. I know I can’t inspire a love of the field for everyone who reads this, but I do want to motivate statistics and offer some opinions as to why statistics tends to elicit grimaces from non-practitioners.
+
+As I was planning to start this blog, I asked my friends about their opinions about statistics, and it was pointed out that a particularly unsatisfying part of learning statistics is that students tend to get the feeling that they aren’t certain about anything. I won't try to deny this because it's completely true. But when are we ever 100% certain about anything **interesting**? See if you can come up with an example of something that you know with absolute certainty and that actually raises your eyebrows. I’m coming up with "I will type the word 'statistics' at least one more time in this post" and "I will eat a brownie in the next week." These are completely inevitable and therefore (to me) completely uninteresting statements. Even inevitabilities can have degrees of uncertainty when we pose them in a different way:
+	
+  * "A new president will be elected next term." But **who** will win the election?
+  * "March Madness will come to an end soon." But **what team** will come out on top?
+  * "Another research paper in statistical genomics will be published in the next month." But will it be any **good**?
+  * "The government will spend money on scientific research next year." But **how much**?
+
+The point is that although we are certain about the occurrence or non-occurrences of many events, we tend to be more interested in the **details** surrounding these events, and these details are what give rise to uncertainty. Statistics cannot change this inherent uncertainty in the world but it can give us a tool to make more informed predictions. For example, if I were trying to find the best place to buy gas in my neighborhood, I could look at the daily history of prices per gallon at all of the local stations and do a statistical analysis to determine which station tends to be the cheapest. Statistics will not allow me to be certain of the price per gallon at these stations tomorrow. The only way I could know this with certainty is if I had infinite and perfect knowledge of how gas prices are determined each day. This would entail knowing everything about the workings of the economy and the mindsets of CEOs of gas companies among many other things. But I don’t have this infinite knowledge. I have to work with the limited data available to me, and statistics is a structured framework for doing so.
+
+The structure in statistics is in large part governed by models. Model specification is a core part of statistics, and I contend that it is also what makes our field so scary. Models can be useful because they allow us to propose reasons for why we observe what we do in a concrete, structured, and reproducible way. I'll illustrate this with an example.
+
+Suppose you work at a company that does a weekly lottery for a gift certificate to a local restaurant. Each week, a computer randomly selects one of the 500 total employees to receive the prize so that each of the 500 employees has an equal chance of being picked (1 in 500). For many, intuition says, "I should have a higher chance of being selected as the weeks go by." This is not a correct statement, but it is an easy mistake to make if you are not thinking about the mathematics behind the statement. This is why models can be useful. They can help us translate statements like these into mathematical expressions that precisely quantify the probabilities we are trying to calculate. This lottery is exactly an example of what statisticians would call a "binomial experiment." It is a model that allows us to calculate the probability of different numbers of successes in a series of independent trials and allows us to supply the (fixed) probability of success, the number of trials, and the number of successes. So in this situation, the fixed probability of success is 1/500, the number of trials is the number of weeks the lottery has been taking place, and the number of successes of interest is zero because we are interested in the probability of never being picked in a given number of weeks.
+
+The statement "I should have a higher chance of being selected as the weeks go by" translates to the question "What is the probability that I am chosen in week X?" and is a question that is easily answerable by our model of the lottery. Because our model requires a fixed probability of success (1/500), the probability of being chosen in week X is 1/500 **regardless of what week it is**. More intuitively, why is this so? Our question is one about the characteristics of the **lottery**, which is a fixed procedure. We can’t change the fact that there are 500 employees, and we can’t change the computer that is picking between the 500 employees equally.
+
+However, by keeping in mind that our model of the lottery allows us to calculate probabilities of numbers of successes, we should instead ask, "What is the probability that I am chosen exactly zero times in X weeks?" which translates to the intuition "It should be increasing unlikely for me to never be picked in all the weeks the lottery has been going on." This question concerns the outcome of the lottery, which is uncertain, whereas we had previously been inquiring about a characteristic of the lottery design, which was quite certain. Our model easily answers this question, and the probabilities as a function of the number of weeks X are shown in the graph on the left below. The probabilities for the complementary question "What is the probability that I am chosen at least once in X weeks?" are shown below on the right. (The R code for making the plots is also shown below.)
+
+```{r lottery}
+p <- 1/500
+weeks <- 1:500
+prob_notchosen <- (1-p)^weeks
+prob_chosen <- 1-prob_notchosen
+par(mfrow = c(1,2), mar = c(4,4,2,1), bty = "l")
+plot(weeks, prob_notchosen, xlab = "Week", ylab = "Probability", main = "Never being chosen", type = "l", ylim = c(0,1))
+plot(weeks, prob_chosen, xlab = "Week", ylab = "Probability", main = "Chosen at least once", type = "l", ylim = c(0,1))
+```
+
+We can see that as weeks go by, the probability of never once being chosen declines, and the complementary probability of being chosen at least once increases. So the initial intuition "I should have a higher chance of being selected as the weeks go by" is wrong because we did not carefully form our question. What we really wanted to express is the increasing probability of being picked at least once in a larger and larger time frame. And this was a lot easier to express once we had cast the lottery as a binomial model and determined the types of questions that our model was suited to answer.
+
+In this example of the lottery, the binomial model was an exact description of the situation. But very rarely in real life are the situations we want to study so clear cut. Most of the time interesting systems are complex, and statisticians have to make many simplifying assumptions in order to even begin the modeling process. The oft-quoted line from George Box illustrates this situation "Essentially, all models are wrong, but some are useful." The "some are useful" part of Box’s quote is what can make statistics so scary. How can we know whether our models are really useful? In other words, how can we know whether our models still closely approximate reality? We tend to fall in love with our models because we invest so much time in them, and this is partly why our collaborators in non-statistical fields find our process mystifying. We often adopt models because they **seem** to fit reality well enough and mostly because they are convenient. But in order to make meaningful discoveries, we can’t just guess and assume that our reasoning alone justifies the models we create. We either need to do a better job at incorporating the extensive knowledge of field-specific experts into our models or restrain the urge to take the modeling approach altogether.

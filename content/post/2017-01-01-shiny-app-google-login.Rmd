@@ -1,0 +1,174 @@
+---
+title: "Creating a Shiny app with Google login"
+author: "Leslie Myint"
+date: 2017-01-01 18:24:29+00:00
+slug: shiny-app-with-google-login
+categories: ["R"]
+tags: ["Shiny", "OAuth"]
+header:
+  caption: ''
+  image: ''
+---
+
+Creating a Shiny application that enables user login can be useful for tailoring individual user experience and for analyzing user actions with profile-type data. With basic file I/O functions, it is possible to create a simple but insecure app that stores login names and passwords in text files. A much more secure alternative is to use an existing authentication system to handle login. I'm sure many of you have seen websites that allow you to login via Google or Facebook. I will outline here the steps needed to setup a "Login with Google" functionality on your Shiny app.
+
+
+
+# Step 1: Install packages
+
+You will need the [`googleAuthR`](https://github.com/MarkEdmondson1234/googleAuthR) and [`googleID`](https://github.com/MarkEdmondson1234/googleID) packages to allow for Google authentication and login. If you plan to publish your app on shinyapps.io, you'll also need the `shinyjs` package to avoid a clunky "Disconnected from the server" message on logout. You can install these packages with
+
+```r
+install.packages(c("googleAuthR", "shinyjs"))
+devtools::install_github("MarkEdmondson1234/googleID")
+```
+
+It is important to install the `googleID` package with the command above to avoid an "Unable to retrieve package records" error when publishing your app (see [here](https://groups.google.com/forum/#!topic/shiny-discuss/l6nug9hMh7g)).
+
+# Step 2: Setup Google APIs
+
+## Setup a Google API project
+
+  1. Make sure that you are logged into Google and visit the [Google APIs project page](https://console.developers.google.com/iam-admin/projects).
+  2. Click the "Create Project" link at the top and enter a name for the project (e.g. "myShinyApp"). After a few seconds, you will be redirected to the Google API manager.
+  3. Click on the [Google+ API link](https://console.developers.google.com/apis/api/plus/overview) under "Social APIs" and click the "Enable" link at the top to activate the Google+ API.
+
+## Setup authentication credentials
+
+  1. Click the "Credentials" link in the menu on the left.
+  2. Navigate to the "OAuth consent screen" tab near the top.
+  3. Fill in the "Product name shown to users" form with the name of your Shiny application. The information you provide in this tab populate the authentication screen that pops up when users click the "Login with Google" link in your app ([example](https://developers.google.com/accounts/images/OAuth2Consent.png)).
+  4. Navigate to the "Credentials" tab at the top.
+  5. On the "Create Credentials" dropdown menu, select "OAuth client ID" and select "Web application" for the application type.
+  6. Fill in any descriptive name for this authentication client.
+  7. In the redirect URLs field, fill in
+    * the URL for your Shiny app (e.g. https://yourdomain.shinyapps.io/appName)
+    * http://127.0.0.1:1221
+This is to facilitate local development and testing of your app.    
+  8. After saving this information, a client ID and secret will pop up. Copy and paste these for use in your code later.
+
+# Step 3: Code
+
+Include the following code at the top of your `app.R` file to setup scopes for the relevant API functions you'll be using and to specify the client ID and secret you received in step 8 above:
+
+```r
+options(googleAuthR.scopes.selected = c("https://www.googleapis.com/auth/userinfo.email",
+                                        "https://www.googleapis.com/auth/userinfo.profile"))
+options("googleAuthR.webapp.client_id" = "YOUR_CLIENT_ID")
+options("googleAuthR.webapp.client_secret" = "YOUR_CLIENT_SECRET")
+```
+
+Below is the shell of an app.R file that will create a login/logout button using Google authentication. I'll explain the individual components afterward.
+
+```r
+ui <- navbarPage(
+    title = "App Name",
+    windowTitle = "Browser window title",
+    tabPanel("Tab 1",
+        useShinyjs(),
+        sidebarLayout(
+            sidebarPanel(
+                p("Welcome!"),
+                googleAuthUI("gauth_login")
+            ),
+            mainPanel(
+                textOutput("display_username")
+            )
+        )
+    ),
+    tabPanel("Tab 2",
+        p("Layout for tab 2")
+    )
+)
+
+server <- function(input, output, session) {
+    ## Global variables needed throughout the app
+    rv <- reactiveValues(
+        login = FALSE
+    )
+
+    ## Authentication
+    accessToken <- callModule(googleAuth, "gauth_login",
+        login_class = "btn btn-primary",
+        logout_class = "btn btn-primary")
+    userDetails <- reactive({
+        validate(
+            need(accessToken(), "not logged in")
+        )
+        rv$login <- TRUE
+        with_shiny(get_user_info, shiny_access_token = accessToken())
+    })
+
+    ## Display user's Google display name after successful login
+    output$display_username <- renderText({
+        validate(
+            need(userDetails(), "getting user details")
+        )
+        userDetails()$displayName
+    })
+
+    ## Workaround to avoid shinyaps.io URL problems
+    observe({
+        if (rv$login) {
+            shinyjs::onclick("gauth_login-googleAuthUi",
+                shinyjs::runjs("window.location.href = 'https://yourdomain.shinyapps.io/appName';"))
+        }
+    })
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+The login/logout button is created as part of the UI by calling the `googleAuthUI` function and supplying an ID:
+
+```r
+googleAuthUI("gauth_login")
+```
+
+Use the same ID to call the Google authentication module with `callModule`. It is also possible to set the classes of the login and logout buttons. For styling purposes, I've set the classes of the login and logout buttons to be the same which renders the buttons as flat blue buttons with white text. By default, the logout button just has the `btn` class and is a standard silver button.
+
+```r
+accessToken <- callModule(googleAuth, "gauth_login",
+    login_class = "btn btn-primary",
+    logout_class = "btn btn-primary")
+```
+
+The `userDetails` object is a reactive expression that is a list of several pieces of information from the user's Google profile (see the [googleID example](https://github.com/MarkEdmondson1234/googleID)). Until the access token is generated, any output that depends on `userDetails` will instead display "not logged in."
+
+```r
+userDetails <- reactive({
+    validate(
+        need(accessToken(), "not logged in")
+    )
+    rv$login <- TRUE
+    with_shiny(get_user_info, shiny_access_token = accessToken())
+})
+```
+
+If parts of the UI are to be rendered based on this information after user login, include a `validate()` command:
+
+```r
+output$display_username <- renderText({
+    validate(
+        need(userDetails(), "getting user details")
+    )
+    userDetails()$displayName
+})
+```
+
+Without the last piece of code using `shinyjs`, clicking the logout button would cause the app to be [disconnected from the server](https://github.com/MarkEdmondson1234/googleAuthR/issues/17). This results in a clunky, undesirable logout experience. This last piece of code redirects to the specified URL when the logout button is clicked.
+
+```r
+observe({
+    if (rv$login) {
+        shinyjs::onclick("gauth_login-googleAuthUi",
+            shinyjs::runjs("window.location.href = 'https://yourdomain.shinyapps.io/appName';"))
+    }
+})
+```
+
+
+
+# Other considerations
+
+The steps above should help you quickly get started developing a Shiny application with Google login. The meat of the app will depend on your needs, but if you want to keep track of user information, consider using some [online file system or database](https://shiny.rstudio.com/articles/persistent-data-storage.html) to map users' Google IDs to your app's own set of profile information.

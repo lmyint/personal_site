@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:lmyint/lmyint.github.io.git
+	branch = master

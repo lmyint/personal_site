@@ -1,0 +1,51 @@
+---
+title: "What is likelihood?"
+author: "Leslie Myint"
+date: 2016-02-09 03:13:43+00:00
+slug: what-is-likelihood
+categories: ["Education"]
+tags: ["likelihood"]
+math: true
+header:
+  caption: ''
+  image: ''
+---
+
+I am currently a TA for an introductory biostatistics sequence at JHSPH where we teach students about the essentials of regression analysis. A great question that came up at office hours last week was, "What _is_ likelihood?" I love this question because it is so fundamental to statistical thought, seems very intuitive, but actually abounds in nuance.
+
+I found my answer to the question to be rather unsatisfying: "Likelihood refers to how probable our collected data would be given the regression model that we're currently fitting. The higher the likelihood that Stata reports, the more likely it is that we observe our data under the specified regression model." Still not seeing the click, I added, "So essentially the higher the likelihood, the better the model is at fitting, at predicting the data. We're using likelihood here as a means of measuring the predictive power of a regression model." Some nodding.
+
+I've been thinking about this more, and the standard explanation of likelihood as being "under a certain model" is rather confusing. At least phrased in this way. Students are actually quite familiar with this idea in other settings. So if I could go back and answer the question again, I would want the conversation to go something like this:
+
+"So what _is_ likelihood?"
+
+"Good question! Let me ask you this: what's the probability of rolling a one on a six-sided die?"
+
+"One-sixth..."
+
+"Ah - what if I told you that it was actually 90%?"
+
+Silence or contemplation.
+
+"So why did you say one-sixth?"
+
+"Because there's a single one out of the six sides."
+
+"Right - so you assumed a **model** of a fair die. And using a model for a fair die, each number has a one-sixth chance of being rolled. I assumed a model of an exquisitely crafted loaded die where the chance of getting a one is 90% and the other five numbers is 2% each."
+
+"Ok..."
+
+"We're getting close to the meat of it! So I have a model in mind, and you have a model in mind...who's right? The only way to hope to answer this is with data. Say I rolled this hypothetical die and got a 2, 3, 4, 6, and then a 2. What die model do you think is better?"
+
+"The fair one."
+
+"Right - why?"
+
+"There wasn't even a single one rolled, and your loaded die is supposed to have a 90% chance to roll a one."
+
+"Excellent! So the **likelihood** of our data is higher for the fair die than for my loaded die, which is what led you to prefer the fair die model. Specifically you can calculate the likelihood of the data under your fair die model as $\left(\frac{1}{6}\right)^5$, and I can calculate the likelihood of the data under my loaded die model as $(0.02)^5$, which is way lower. We can apply the thinking for this scenario analogously to regression! In regression, we are proposing models for the data just like we were in this dice scenario. It's just that we're using a different probability model. Specifically, we assume that the outcomes come from a normal distribution and that the mean of the distribution is some linear combination of covariates. Knowing the covariate information for everyone in our data is just like knowing the sequence of die rolls, and knowing the density function for the normal distribution is just like knowing the probabilities for the six sides of the die!"
+
+The last bit of this would vary depending on the student's understanding of the assumptions and setup of linear regression, but I like this line of explanation more than my original one for two teaching strategies that it employs.
+	
+  * **Setting the student up to be contradicted.** Arguably lessons are more memorable for students when they are fairly confident in an answer but end up being told otherwise. Here I wanted to make them think intuitively about a common situation but bring to light their unconscious assumptions by bringing in unusual but plausible assumptions of my own. One of the main points of the explanation, the key dependence of likelihood on the model being proposed, hinges on this awareness of the connection between having a model in mind and being able to calculate probabilities. So making this memorable is key.
+  * **Framing the unfamiliar in the familiar.** Abstract concepts are often so because students are not accustomed to the language that we instructors are using to describe them. However, by framing the concept in a familiar context, students can more easily make the leap. It's also a nice way to explain something twice without just repeating yourself twice. Essentially, analogies are the way to go when explaining something complex.
