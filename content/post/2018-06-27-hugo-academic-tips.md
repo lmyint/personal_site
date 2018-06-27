@@ -91,13 +91,13 @@ Following the advice [here](https://github.com/gcushen/hugo-academic/issues/346)
 3. Look in the third row of the table: Taxonomy list in categories
 4. Create `layouts/categories/category.rss.xml` and use the default RSS template at the bottom of the page replacing
 
-```http
+```html
 <description>{{ .Summary | html }}</description>
 ```
 
 with
 
-```http
+```html
 <description>{{ .Content | html }}</description>
 ```
 
