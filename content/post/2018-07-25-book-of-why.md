@@ -11,7 +11,7 @@ header:
   image: ''
 ---
 
-I just finished reading *The Book of Why* by Judea Pearl and Dana Mackenzie, and I really enjoyed it. I had been wanting to read it for some time now because I know very little about methodology relating to causal diagrams and structure learning. The book provides an overview of the main ideas that formed and historical events that led up to what Pearl calls the "Causal Revolution", a burgeoning of the direct interrogation of causation as opposed to its implicit renouncement in science for a period before then. Much of the causal inference methodology that Pearl discusses in the book is his own, namely that of causal diagrams and *do*-calculus. In light of his own methods, he also discusses techniques that have are popular in disciplines such as psychology and economics as well as another major framework for causal inference, the Rubin causal model. In reflecting on the book, I found it useful to organize my thoughts according to major themes I saw in the book.
+I just finished reading *The Book of Why* by Judea Pearl and Dana Mackenzie, and I really enjoyed it. I had been wanting to read it for some time now because I know very little about methodology relating to causal diagrams and structure learning. The book provides an overview of the main ideas that formed and historical events that led up to what Pearl calls the "Causal Revolution", a burgeoning of the direct interrogation of causation as opposed to its implicit renouncement in science for a period before then. Much of the causal inference methodology that Pearl discusses in the book is his own, namely that of causal diagrams and *do*-calculus. In light of his own methods, he also discusses techniques that are popular in disciplines such as psychology and economics. He also discusses another major framework for causal inference, the Rubin causal model. In reflecting on the book, I found it useful to organize my thoughts according to major themes I saw in the book.
 
 ## Table of Contents
 
@@ -97,11 +97,10 @@ By its nature, the book aims to inform readers about the development of and abou
 
 ## Conclusions <a id="conclusions"></a>
 
-I highly recommend this book to anyone who cares about science. Even if causal inference isn't an area of interest for you, the ideas in this book are important for understanding the causal research that we otherwise consume or hear about. Pearl is very invested in these ideas, so the language in the book is very enthusiastically in favor of these methods. I can see how this might irritate some readers, but I found that the ideas he presented were compelling and interesting in their own right. Certainly these methods are not a panacea, but I do believe that they can be quite useful. Reading the book has certainly motivated me to continue learning about these topics, and I hope that I can eventually fully understand the answers to some questions I was left with:
+I highly recommend this book to anyone who cares about science. Even if causal inference isn't an area of interest for you, the ideas in this book are important for understanding the causal research that we otherwise consume or hear about. Pearl is very invested in these ideas, so the language in the book is very enthusiastically in favor of these methods. I can see how this might irritate some readers, but I found that the ideas he presented were compelling and interesting in their own right. Certainly these methods are not a panacea, but I do believe that they can be quite useful. Reading the book has motivated me to continue learning about these topics, and I hope that I can eventually fully understand the answers to some questions I was left with:
 
 - Is there no reconciliation at all for Rubin causal model type methods and *do*-calculus methods?
 - How can causal diagrams and *do*-calculus be used to study networks that evove with time?
 - How is interference between units handled?
 - How can we measure the causal effect of several variables simultaneously?
 - I have heard of edges being random variables in the graphical model literature. (i.e. Arrows can point to arrows.) Is this part of the *do*-calculus framework?
-
