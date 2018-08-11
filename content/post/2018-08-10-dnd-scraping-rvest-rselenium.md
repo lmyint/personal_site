@@ -46,7 +46,7 @@ Throughout, I use the following packages:
 
 - [rvest](https://cran.r-project.org/web/packages/rvest/index.html) for page scraping
 - [stringr](https://cran.r-project.org/web/packages/stringr/index.html) for working with strings
-- [tibble](https://cran.r-project.org/web/packages/tibble/index.html) for the flexibility over data frames to allow list columns
+- [tibble](https://cran.r-project.org/web/packages/tibble/index.html) for the flexibility over data frames to allow list-columns
 - [RSelenium](https://github.com/ropensci/RSelenium) for browser navigation via R. This package was on CRAN but removed in May 2018. I used the development version on GitHub, but the package maintainer is [currently working to fix this](https://github.com/ropensci/RSelenium/issues/172).
 
 ## Step 1: Scrape tables to get individual monster page URLs <a id="step1"></a>
@@ -92,7 +92,7 @@ num_pages <- page %>%
 	max(na.rm = TRUE)
 ```
 
-The most difficult part of this part of code is figuring out the selector to use in `html_nodes`. Luckily, the `rvest` package page on CRAN has a link to a vignette on a tool called [SelectorGadget](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html). I love this tool for its playful homage to [childhood memories](https://www.youtube.com/watch?v=e-JHfXVlkik), and it also greatly helps in determining the CSS selectors needed to select desired parts of a webpage. Once you have dragged the tool link to the bookmark bar, you can click the bookmark while viewing any page to get a hover tool that highlights page elements as you mouse over them. Clicking on an element on the page displays the CSS selector in the tool panel.
+The most difficult part of this part of code is figuring out the selector to use in `html_nodes`. Luckily, the `rvest` package page on CRAN has a link to a vignette on a tool called [SelectorGadget](https://cran.r-project.org/web/packages/rvest/vignettes/selectorgadget.html). I love this tool for its playful homage to [childhood memories](https://www.youtube.com/watch?v=e-JHfXVlkik), and it also greatly helps in determining the CSS selectors needed to select desired parts of a webpage. Once you have dragged the tool link to the bookmark bar, you can click the bookmark while viewing any page to get a hover tool that highlights page elements as you mouse over them. Clicking on an element on the page displays the text for the CSS selector in the tool panel.
 
 Using the SelectorGadget tool, we can determine that the page number buttons on the [main monster page](https://www.dndbeyond.com/monsters) all have the class `b-pagination-item`. The CSS selector for a class always starts with a period followed by the class name. The last page was the maximum of these numbers. (We need to remove `NA`'s created by integer coercion of the "Next" button.)
 
@@ -117,10 +117,10 @@ The `get_monster_links` function takes as input a URL for a page of results (lik
 
 - We first read the HTML source of a page with `read_html`.
 - We can then use a combination of SelectorGadget with the "View page source" functionality of your browser to select the links on the page. Here we find that they belong to class `link`.
-- We use the `html_attr` function here to extract the link path rather than the link text. The `name = "href"` specifies that we want the path attribute. (Anatomy of an HTML link: `<a href="https://www.something.com>Link text seen on page</a>`).
+- We use the `html_attr` function here to extract the link path rather than the link text. The `name = "href"` specifies that we want the path attribute. (Anatomy of an HTML link: `<a href="https://www.something.com">Link text seen on page</a>`).
 - The remainder of the function subsets the extracted links to only those that pertain to the monster pages (removing links like the home page). Printing the output indicates that these links are only relative links, so we append the base URL to create absolute links (`abs_links`).
 
-Finally, we can loop through all pages of results to get the hundreds of pages for the individual monsters.
+Finally, we can loop through all pages of results to get the hundreds of pages for the individual monsters:
 
 ```r
 ## Loop through all pages
@@ -132,7 +132,7 @@ all_monster_urls <- lapply(seq_len(num_pages), function(i) {
 
 ## Step 2: Use `RSelenium` to access pages behind login <a id="rselenium"></a>
 
-In Step 1, we looped through pages of tables to get the URLs for pages that contain detailed information on individual monsters. Great! We can visit each of these pages and just do some more `rvest` work to scrape the details! Well, not immediately. Most of these monster pages can only be seen if you have paid for the corresponding digital books and are logged in. DnD Beyond uses [Twitch](https://www.twitch.tv/) for authentication which involves a redirect. This redirect made it way harder for me to figure out what to do. It was like I had been thrown into the magical, mysterious, and deceptive realm of the [Feywild](http://forgottenrealms.wikia.com/wiki/Feywild) where I frantically invoked Google magicks to find many dashed glimmers of hope but luckily a solution in the end.
+In Step 1, we looped through pages of tables to get the URLs for pages that contain detailed information on individual monsters. Great! We can visit each of these pages and just do some more `rvest` work to scrape the details! Well... not immediately. Most of these monster pages can only be seen if you have paid for the corresponding digital books and are logged in. DnD Beyond uses [Twitch](https://www.twitch.tv/) for authentication which involves a redirect. This redirect made it way harder for me to figure out what to do. It was like I had been thrown into the magical, mysterious, and deceptive realm of the [Feywild](http://forgottenrealms.wikia.com/wiki/Feywild) where I frantically invoked Google magicks to find many dashed glimmers of hope but luckily a solution in the end.
 
 ### What did not work <a id="fail"></a>
 
@@ -146,7 +146,7 @@ session <- html_session(url)
 url <- follow_link(session, "Login")
 ```
 
-  But I ran into an error:
+But I ran into an error:
 
 ```
 Error in curl::curl_fetch_memory(url, handle = handle) : 
@@ -157,7 +157,7 @@ Error in curl::curl_fetch_memory(url, handle = handle) :
 
 ### What did work <a id="success"></a>
 
-Only when I stumbled upon this [Stack Overflow post](https://stackoverflow.com/questions/40198182/403-error-when-using-rvest-to-log-into-website-for-scraping)did I learn about the `RSelenium` package. [Selenium](https://www.seleniumhq.org/) is a tool for automating web browsers, and the `RSelenium` package is the R interface for it.
+Only when I stumbled upon this [Stack Overflow post](https://stackoverflow.com/questions/40198182/403-error-when-using-rvest-to-log-into-website-for-scraping) did I learn about the `RSelenium` package. [Selenium](https://www.seleniumhq.org/) is a tool for automating web browsers, and the `RSelenium` package is the R interface for it.
 
 I am really grateful to the posters on that Stack Overflow question and [this blog post](https://abdallaabdi.com/2016/02/13/navigating-scraping-job-sites-rvest-rselenium/) for getting me started with `RSelenium`. The only problem is that the `startServer` function used in both posts is now defunct. When calling `startServer`, the message text informs you of the `rsDriver` function.
 
@@ -170,7 +170,7 @@ rd <- rsDriver(browser = "chrome")
 rem_dr <- rd[["client"]]
 ```
 
-When you first run `rsDriver`, status messages will indicate that required files are being downloaded. After that you will see the status text "Connecting to remote server" and a Chrome browser window will pop open. The browser window will have a message beneath the search bar saying "Chrome is being controlled by automated test software." This code comes straight from the `rsDriver` example.
+When you first run `rsDriver`, status messages will indicate that required files are being downloaded. After that you will see the status text "Connecting to remote server" and a Chrome browser window will pop open. The browser window will have a message beneath the search bar saying "Chrome is being controlled by automated test software." This code comes straight from the example in the `rsDriver` help page.
 
 #### Step 2b: Browser navigation and interaction <a id="nav-interact"></a>
 
@@ -233,7 +233,7 @@ The last step in our scraping endeavor is to write the `scrape_monster_page` fun
 
 ### Principle 1: Use SelectorGadget AND view the page's source <a id="principle1"></a>
 
-As useful as SelectorGadget is for finding the CSS selector, I never use it alone. I always open up the page's source code and do a lot of Ctrl-F to quickly find specific parts of a page. For example, when I was using SelectorGadget to get the CSS selectors for the Armor Class, Hit Points, and Speed attributes, I saw the following:
+As useful as SelectorGadget is for finding the correct CSS selector, I never use it alone. I always open up the page's source code and do a lot of Ctrl-F to quickly find specific parts of a page. For example, when I was using SelectorGadget to get the CSS selectors for the Armor Class, Hit Points, and Speed attributes, I saw the following:
 
 ![](/post/2018-08-10-dnd-scraping_files/attr_block.png)
 
@@ -293,7 +293,7 @@ Continuing from the above example of desiring the Armor Class, Hit Points, and S
 [2] "\n            Hit Points\n            \n                \n                    207\n                \n                \n                    (18d12 + 90)\n                      \n            \n        "                                                         
 [3] "\n            Speed\n            \n                \n                    40 ft., fly 80 ft., swim 40 ft.\n                     \n                \n            \n        "
 ```
-page %>% html_nodes(".mon-stat-block__attribute-label") %>% html_text()
+
 A mess! A length-3 character vector containing the information I wanted but not in a very tidy format. Because I want to visualize and explore this data later, I want to do a little tidying up front in the scraping process.
 
 What if I just access the three subdivisions separately and `rbind` them together? This is not a good idea because of missing elements as shown below:
