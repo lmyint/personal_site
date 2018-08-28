@@ -57,7 +57,7 @@ enableGitInfo = false
 
   # Your details.
   name = "Leslie Myint"
-  role = "Statistician"
+  role = "Assistant Professor"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -67,7 +67,7 @@ enableGitInfo = false
   avatar = "portrait.png"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "lmyint@macalester.edu"
   address = "Olin-Rice Science Center, Room 232"
-  office_hours = ""
+  office_hours = "Monday and Friday 10:30am-12:00pm, Wednesday 3:30pm-5:00pm"
   phone = ""
   skype = ""
   telegram = ""
