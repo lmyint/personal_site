@@ -23,7 +23,7 @@ paginate = 10
 disqusShortname = "https-lmyint-github-io"
 
 # Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = ""
+googleAnalytics = "UA-126128799-1"
 
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
@@ -67,8 +67,8 @@ enableGitInfo = false
   avatar = "portrait.png"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "lmyint@macalester.edu"
   address = "Olin-Rice Science Center, Room 232"
-  office_hours = "Monday and Friday 10:30am-12:00pm, Wednesday 3:30pm-5:00pm"
-  phone = ""
+  office_hours = "Monday, Tuesday, Wednesday 3:30pm-5:00pm"
+  phone = "651-696-6814"
   skype = ""
   telegram = ""
   twitter = "lesliemyint"
