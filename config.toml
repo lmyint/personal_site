@@ -10,7 +10,7 @@ title = "Leslie Myint"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2018"
+copyright = "&copy; 2019"
 
 theme = "hugo-academic"
 enableEmoji = true
@@ -67,7 +67,7 @@ enableGitInfo = false
   avatar = "portrait.png"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "lmyint@macalester.edu"
   address = "Olin-Rice Science Center, Room 232"
-  office_hours = "Monday, Tuesday, Wednesday 3:30pm-5:00pm"
+  office_hours = ""
   phone = "651-696-6814"
   skype = ""
   telegram = ""
