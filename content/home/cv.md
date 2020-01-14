@@ -15,4 +15,4 @@ weight = 25
 
 +++
 
-My CV is available in [HTML](cv/) or [PDF](cv/cv.pdf) form. (Last updated: October 24, 2019)
+My CV is available in [HTML](cv/) or [PDF](cv/cv.pdf) form. (Last updated: January 14, 2020)
