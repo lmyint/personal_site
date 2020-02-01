@@ -15,15 +15,13 @@ weight = 20
 
 +++
 
-2019-2020 academic year:
+I teach the following courses at Macalester. Some of my courses have course websites which you can navigate to below. (S = Spring, F = Fall)
 
-- STAT 125: Epidemiology (Fall)
-- STAT 155: Introduction to Statistical Modeling (Spring)
-- STAT 394: Causal Inference (Spring)
-
-2018-2019 academic year:
-
-- MATH 155: Introduction to Statistical Modeling (Fall)    
-    - [Class notes](https://bcheggeseth.github.io/Math155Notes/) in collaboration with [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth)
-- MATH 253: Machine Learning (Spring)    
-    - [Class website](https://lmyint.github.io/253_spring_2019/)
+- STAT 125: Epidemiology
+- STAT 155: Introduction to Statistical Modeling
+    - [Class notes](https://bcheggeseth.github.io/Stat155Notes/) in collaboration with [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth)
+    - [[S20 Site]](https://lmyint.github.io/155_spring_2020/)
+- STAT 253: Statistical Machine Learning
+    - [[S19 Site]](https://lmyint.github.io/253_spring_2019/)
+- STAT 394: Causal Inference
+    - [[S20 Site]](https://lmyint.github.io/causal_spring_2020/)
