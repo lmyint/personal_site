@@ -1,0 +1,16 @@
+Install
+You can choose from one of the following four methods to install:
+
+  * one-click install using your web browser (recommended)
+  * install on your computer using Git with the Command Prompt/Terminal app
+  * install on your computer by downloading the ZIP files
+  * install on your computer with RStudio
+Install with Git
+Prerequisites:
+  * Download And Install Git `https://git-scm.com/downloads`
+                        &
+  * Download And Install Hugo `https://gohugo.io/getting-started/installing/#quick-install`
+  
+  * Get Help From Youtube :
+                       By searching `How to set-up git and hugo` There is lots of video They help a lot
+  
