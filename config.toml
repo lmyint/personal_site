@@ -93,7 +93,7 @@ enableGitInfo = false
   # To use OpenStreetMap on a high traffic site, set `map = 3` and enter your API key that can be obtained here:
   #   https://www.mapbox.com/studio/account/tokens
   # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-  #
+  
   # Map provider:
   #   0: No map
   #   1: Google Maps
@@ -128,7 +128,7 @@ enableGitInfo = false
   #   highlight
   #     Enable global source code highlighting?  If false, you can
   #     override it for a particular page in that page's preamble.
-  #
+  
   #     Example: highlight = true
   #
   #   highlight_languages
@@ -136,16 +136,16 @@ enableGitInfo = false
   #     languages mentioned here will be included in all pages. You
   #     can also set this variable for a particular page in that
   #     page's preamble.
-  #
+  
   #     Example: highlight_languages = ["go", "lisp", "ocaml"]
-  #
+  
   #   highlight_style
   #     Choose a different CSS style for highlighting source
   #     code. Setting this option in a page's preamble has no
   #     effect.
-  #
+  
   #     Example: highlight_style = "github-gist"
-  #
+  
   #   For the list of supported languages and styles, see:
   #   https://cdnjs.com/libraries/highlight.js/
   #
@@ -209,21 +209,21 @@ enableGitInfo = false
     publication_format = 3
 
   # Social/Academic Networking
-  #
+  
   # Icon pack "fa" includes the following social network icons:
-  #
+  
   #   twitter, weibo, linkedin, github, facebook, pinterest, google-plus,
   #   youtube, instagram, soundcloud
-  #
+  
   #   For email icon, use "fa" icon pack, "envelope" icon, and
   #   "mailto:your@email.com" as the link.
-  #
+  
   #   Full list: https://fortawesome.github.io/Font-Awesome/icons/
-  #
+  
   # Icon pack "ai" includes the following academic network icons:
-  #
+  
   #   google-scholar, arxiv, orcid, researchgate, mendeley
-  #
+  
   #   Full list: https://jpswalsh.github.io/academicons/
 
   [[params.social]]
