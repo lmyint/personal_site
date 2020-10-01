@@ -1,3 +1,4 @@
+SITE
 ---
 site: blogdown:::blogdown_site
 ---
