@@ -247,7 +247,7 @@ enableGitInfo = false
     link = "//github.com/lmyint"
 
   [[params.social]]
-    icon = "linkedin"
+    icon = "LinkedIn"
     icon_pack = "fa"
     link = "https://www.linkedin.com/in/leslie-myint-b9433bb4/"
 
