@@ -12,7 +12,7 @@ title = "Leslie Myint"
 # To display a copyright symbol, type `&copy;`.
 copyright = "&copy; 2019"
 
-theme = "hugo-academic"
+themes = "hugo-academic"
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
@@ -35,7 +35,7 @@ enableGitInfo = false
 
 [outputs]
   home = [ "HTML", "CSS", "RSS" ]
-  section = [ "HTML", "RSS" ]
+  sections = [ "HTML", "RSS" ]
   taxonomy = [ "HTML", "RSS" ]
   taxonomyTerm = [ "HTML", "RSS" ]
 
@@ -302,9 +302,9 @@ enableGitInfo = false
 
 # Taxonomies.
 [taxonomies]
-  tag = "tags"
-  category = "categories"
-  publication_type = "publication_types"
+  tag = "tag"
+  category = "category"
+  publication_type = "publication_type"
 
 # Languages
 #   Create a [languages.X] block for each language you want, where X is the language ID.
