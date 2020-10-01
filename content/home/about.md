@@ -1,10 +1,10 @@
 +++
-# About/Biography widget.
-widget = "about"
+# About/Biography-widget.
+widget = "About"
 active = true
 date = 2016-04-20T00:00:00
 
-# Order that this section will appear in.
+# Order that only this section will appear in.
 weight = 5
 
 # List your academic interests.
@@ -17,7 +17,7 @@ weight = 5
     "Causal inference"
   ]
 
-# List your qualifications (such as academic degrees).
+# List your qualifications (such as academic degrees and certificates).
 [[education.courses]]
   course = "PhD in Biostatistics"
   institution = "Johns Hopkins Bloomberg School of Public Health"
