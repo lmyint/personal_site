@@ -10,6 +10,7 @@ header:
   image: ''
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>Creating a Shiny application that enables user login can be useful for tailoring individual user experience and for analyzing user actions with profile-type data. With basic file I/O functions, it is possible to create a simple but insecure app that stores login names and passwords in text files. A much more secure alternative is to use an existing authentication system to handle login. I’m sure many of you have seen websites that allow you to login via Google or Facebook. I will outline here the steps needed to setup a “Login with Google” functionality on your Shiny app.</p>
@@ -26,7 +27,7 @@ devtools::install_github(&quot;MarkEdmondson1234/googleID&quot;)</code></pre>
 <h2>Setup a Google API project</h2>
 <ol style="list-style-type: decimal">
 <li>Make sure that you are logged into Google and visit the <a href="https://console.developers.google.com/iam-admin/projects">Google APIs project page</a>.</li>
-<li>Click the “Create Project” link at the top and enter a name for the project (e.g. “myShinyApp”). After a few seconds, you will be redirected to the Google API manager.</li>
+<li>Click the “Create Project” link at the top and enter a name for the project (e.g. “myShinyApp”). After a few seconds, you will be redirected to the Google API manager.</li>
 <li>Click on the <a href="https://console.developers.google.com/apis/api/plus/overview">Google+ API link</a> under “Social APIs” and click the “Enable” link at the top to activate the Google+ API.</li>
 </ol>
 </div>
@@ -40,11 +41,10 @@ devtools::install_github(&quot;MarkEdmondson1234/googleID&quot;)</code></pre>
 <li>On the “Create Credentials” dropdown menu, select “OAuth client ID” and select “Web application” for the application type.</li>
 <li>Fill in any descriptive name for this authentication client.</li>
 <li>In the redirect URLs field, fill in
-<ul>
-<li>the URL for your Shiny app (e.g. <a href="https://yourdomain.shinyapps.io/appName" class="uri">https://yourdomain.shinyapps.io/appName</a>)</li>
-<li><a href="http://127.0.0.1:1221" class="uri">http://127.0.0.1:1221</a> This is to facilitate local development and testing of your app.<br />
+* the URL for your Shiny app (e.g. <a href="https://yourdomain.shinyapps.io/appName" class="uri">https://yourdomain.shinyapps.io/appName</a>)
+* <a href="http://127.0.0.1:1221" class="uri">http://127.0.0.1:1221</a>
+This is to facilitate local development and testing of your app.<br />
 </li>
-</ul></li>
 <li>After saving this information, a client ID and secret will pop up. Copy and paste these for use in your code later.</li>
 </ol>
 </div>

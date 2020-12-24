@@ -1,19 +1,17 @@
-+++
-# Custom widget.
-# An example of using the custom widget to create your own homepage section.
-# To create more sections, duplicate this file and edit the values below as desired.
-widget = "custom"
-active = true
-date = 2016-04-20T00:00:00
+---
+# Blank widget
+widget: blank
+active: true
 
-# Note: a full width section format can be enabled by commenting out the `title` and `subtitle` with a `#`.
-title = "Fun"
-subtitle = ""
+# This file represents a page section.
+headless: true
 
-# Order that this section will appear in.
-weight = 30
+# Order that this section appears on the page.
+weight: 50
 
-+++
+title: 'Fun'
+subtitle:
+---
 
 I am an avid [Dungeons and Dragons](http://dnd.wizards.com/) player and game enthusiast, and I love finding ways to bring coding and analysis into these beloved hobbies of mine. As a result, I have a few side projects devoted entirely to fun!
 

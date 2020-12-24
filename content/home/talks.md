@@ -1,26 +1,17 @@
-+++
-# Recent and Upcoming Talks widget.
-widget = "talks"
-active = true
-date = 2016-04-20T00:00:00
+---
+# Blank widget
+widget: blank
+active: true
 
-title = "Recent & Upcoming Talks"
-subtitle = ""
+# This file represents a page section.
+headless: true
 
-# Order that this section will appear in.
-weight = 15
+# Order that this section appears on the page.
+weight: 30
 
-# Number of talks to list.
-count = 10
+title: 'Recent & Upcoming Talks'
+subtitle:
+---
 
-# List format.
-#   0 = Simple
-#   1 = Detailed
-list_format = 0
-
-+++
-
-- **Graphs Galore! Representing Knowledge in the Sciences and Humanities**    
-    *Carleton College. October 22, 2019.* ([Slides](https://docs.google.com/presentation/d/1gh2qpDZhjUDgV-Qo2QZrADnGxwaD2qU7k-zNSHAjvOE/edit?usp=sharing))    
-    *Macalester College. November 1, 2019.* ([Slides](https://docs.google.com/presentation/d/1LQY6P4qZJnVg-s8w0wxPzSjc3-A8nWpuyh-Z5MJ9xDc/edit?usp=sharing))
-
+- **What Did I Just Read? Organizing Knowledge From the Research Literature Using Graph Databases**    
+    *Minnesota Women in Analytics and Data Science. October 31, 2020.* ([Slides](https://docs.google.com/presentation/d/1ACWVKLDd8DmSqYFzVBwp-Jz-rMRYhcLR1OL7sEVYsM4/edit?usp=sharing), [Conference site](http://minneanalytics.org/minnewiads/conference-videos/))
