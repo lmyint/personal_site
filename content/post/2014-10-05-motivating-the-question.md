@@ -3,7 +3,7 @@ title: Motivating the question
 author: Leslie Myint
 date: '2014-10-05 23:42:25+00:00'
 slug: motivating-the-question
-categories: ["Education"]
+categories: ["Teaching"]
 tags: []
 header:
   caption: ''

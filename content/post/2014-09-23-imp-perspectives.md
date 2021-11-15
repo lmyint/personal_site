@@ -3,7 +3,7 @@ title: Perspectives on the Interactive Mathematics Program
 author: Leslie Myint
 date: '2014-09-23 02:57:45+00:00'
 slug: imp-perspectives
-categories: ["Education"]
+categories: ["Teaching"]
 tags: []
 header:
   caption: ''

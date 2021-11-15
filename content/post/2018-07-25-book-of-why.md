@@ -3,7 +3,7 @@ title: 'The Book of Why'
 author: Leslie Myint
 date: '2018-07-25'
 slug: book-of-why
-categories: ["causal inference", "reading"]
+categories: ["Causal Inference", "Books"]
 tags: ["causal diagrams"]
 math: true
 header:

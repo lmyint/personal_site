@@ -3,7 +3,7 @@ title: Teaching real math with computers
 author: Leslie Myint
 date: '2015-03-20 17:03:46+00:00'
 slug: teaching-real-math-with-computers
-categories: ["Education"]
+categories: ["Teaching"]
 tags: []
 header:
   caption: ''

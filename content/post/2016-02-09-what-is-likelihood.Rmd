@@ -3,7 +3,7 @@ title: "What is likelihood?"
 author: "Leslie Myint"
 date: 2016-02-09 03:13:43+00:00
 slug: what-is-likelihood
-categories: ["Education"]
+categories: ["Teaching"]
 tags: ["likelihood"]
 math: true
 header:
