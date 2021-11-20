@@ -17,7 +17,7 @@ I teach the following courses at Macalester. Some of my courses have course webs
 
 - STAT 125: Epidemiology
 - STAT 155: Introduction to Statistical Modeling
-    - [Class notes](https://bcheggeseth.github.io/Stat155Notes/) in collaboration with [Brianna Heggeseth](https://sites.google.com/macalester.edu/bcheggeseth) and [Kelsey Grinde](kegrinde.github.io)
+    - [Class notes](https://bcheggeseth.github.io/Stat155Notes/) in collaboration with [Brianna Heggeseth](https://bcheggeseth.github.io/) and [Kelsey Grinde](https://kegrinde.github.io)
     - [[S20]](https://lmyint.github.io/155_spring_2020/)
 - STAT 253: Statistical Machine Learning
     - [[S19]](https://lmyint.github.io/253_spring_2019/), [[S21]](https://lmyint.github.io/253_spring_2021/)
