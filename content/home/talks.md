@@ -13,6 +13,9 @@ title: 'Recent & Upcoming Talks'
 subtitle:
 ---
 
+- **Causal inference throughout the statistics curriculum**    
+    *Joint Statistical Meetings. August 10, 2022.* ([Slides](https://docs.google.com/presentation/d/12CEAyIN7lBn2PL03VJxc3YZ8la9yEo2C0vfYzXKfl9c/edit?usp=sharing))
+
 - **A metabolic view of symptoms in kidney disease**    
     *University of St. Thomas. Department of Applied Probability and Statistics seminar. April 1, 2022.* ([Slides](https://docs.google.com/presentation/d/1uftijB7_SF3Nz5jZCHoh4cNcPWgNMjK8z9_5zE4fAPk/edit?usp=sharing))
 
