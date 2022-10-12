@@ -1,6 +1,6 @@
 ---
 title: Writing
-description: A collection of posts on teaching, science, and fun with [#rstats](https://twitter.com/hashtag/rstats).
+description: A collection of posts on teaching, science, and fun with [#rstats](https://twitter.com/hashtag/rstats). I also explore these ideas in my newsletter [It's All Connected](https://lesliemyint.substack.com/).
 show_author_byline: true
 show_button_links: false
 show_post_date: true
