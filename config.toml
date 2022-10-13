@@ -1,11 +1,11 @@
 baseURL = "/"
 theme = "hugo-apero"
 languageCode = "en"
-title = "Hugo Apéro"
+title = "Leslie Myint"
 author = "Leslie Myint"
 copyright = "" # set to override the auto generated copyright using org info and now year
 googleAnalytics = "334918311"
-disqusShortname = "" # see params.utterances to use utterances instead of Disqus
+disqusShortname = "https-lmyint-github-io" # see params.utterances to use utterances instead of Disqus
 metaDataFormat = "yaml"
 footnoteReturnLinkContents = "&#8617;" # ↩
 # set deliberately low for testing choose your preffered number based on the blog layout you've chosen
@@ -70,8 +70,8 @@ enableEmoji = true
 
   # Configuration of https://utteranc.es/ for comments
   [params.utterances]
-    use_utterances = true
-    repo_name = "apreshill/apero"
+    use_utterances = false
+    repo_name = ""
     issue_term = "pathname" # url, pathname, or title
     theme = "boxy-light"
     label = "comments :crystal_ball:"
