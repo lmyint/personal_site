@@ -27,3 +27,7 @@ The stories that we can explore through the game's campaigns are limitless. They
 
 Dungeons and Dragons energizes my thinking in all of the areas I hold dear. In a world where we can be set adrift in a storm of ideas, it is my lightning lure: the flash of light that transfixes and illuminates a path forward in the crashing waves.
 
+---
+
+*I am so grateful to [Chris Cordry](chriscordry.com), [Leo Ariel](leoariel.com), [Jack Warshaw](jackwarshaw.substack.com), and [Lavinia Iosub](lavinia-iosub.com) for their wonderful feedback on this piece that made ideas more clear and writing more fun.*
+

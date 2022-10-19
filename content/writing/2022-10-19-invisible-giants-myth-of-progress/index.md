@@ -51,7 +51,9 @@ An atomic concept graph has the potential to *motivate* and *empower* any knowle
 
 Such a graph would also reduce backstory bloat. The introductory information in topic-sharing journal articles would no longer need to be repeated: new ideas would simply link to the appropriate constellation of atomic concepts.
 
+To see further by standing on the shoulders of giants is to understand enough of what has been built to contribute meaningfully in one's own work. Like Nyx's cloak, our default system of books and journal articles enshroud intellectual contributions in darkness, pierced by a select few with a means to illuminate the shadow. Countless others want to lift the veil. It's time to build the knowledge systems that will let them climb past ankles to those lofty shoulders in the clouds.
+
 ---
 
-To see further by standing on the shoulders of giants is to understand enough of what has been built to contribute meaningfully in one's own work. Like Nyx's cloak, our default system of books and journal articles enshroud intellectual contributions in darkness, pierced by a select few with a means to illuminate the shadow. Countless others want to lift the veil. It's time to build the knowledge systems that will let them climb past ankles to those lofty shoulders in the clouds.
+*I am grateful to [Leo Ariel](leoariel.com) and [Tobi Emonts-Holley](Tobisblog.uk) for their wonderful feedback and encouragement on this piece.*
 
