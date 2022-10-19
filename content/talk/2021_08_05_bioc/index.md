@@ -3,7 +3,7 @@ title: "A package for exploring biomedical concept graphs: An alternative to man
 author: Leslie Myint
 categories:
 - Poster
-- Constributed
+- Contributed
 date: "2021-08-05T17:00:00"
 date_end: "2021-08-05T18:00:00"
 draft: false
